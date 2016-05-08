@@ -1,0 +1,2 @@
+app_repo: git@github.com:dmizuno55/ambient-monitor-server.git
+app_base_path: /usr/local/app

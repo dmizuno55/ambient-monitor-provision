@@ -1,0 +1,8 @@
+---
+# ambient monitor client
+- hosts: client
+  become: yes
+  become_user: root
+  roles:
+    - common
+    - nodejs

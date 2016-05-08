@@ -1,0 +1,19 @@
+---
+# ambient monitor server
+- hosts: server
+  become: yes
+  become_user: root
+  roles:
+    - common
+    - nodejs
+    - mongodb
+    - github
+
+# deploy app
+- hosts: server
+  tasks:
+    - name: deploy app
+      git: repo={{ app_repo }} dest={{ app_base_path }} accept_hostkey=yes
+
+    - name: install npm modules
+      npm: path={{ app_base_path }}

@@ -1,0 +1,17 @@
+- include_vars: vault.yml
+  no_log: true
+
+- name: copy ssh secret key
+  copy: >
+    content="{{ secret_key }}"
+    dest=/home/{{ operator.user }}/.ssh/id_rsa
+    mode=0600
+    owner={{ operator.user }}
+    group={{ operator.group }}
+
+- name: ssh-keygen
+  command: ssh-keygen -t rsa -y -f ~/.ssh/id_rsa
+
+- name: install git
+  apt: name=git state=present
+
