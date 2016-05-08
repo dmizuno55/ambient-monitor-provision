@@ -1,0 +1,10 @@
+# editor swap file
+.*.sw?
+
+# vagrant dir
+vagrant/server/.vagrant/
+vagrant/client/.vagrant/
+
+# ansible .retry file
+*.retry
+
