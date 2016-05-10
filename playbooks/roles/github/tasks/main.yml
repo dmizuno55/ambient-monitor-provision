@@ -7,12 +7,12 @@
     dest=~/.ssh/id_rsa
     mode=0600
   become: yes
-  become_user: "{{ operator }}"
+  become_user: "{{ github_user }}"
 
 - name: ssh-keygen
   command: ssh-keygen -t rsa -y -f ~/.ssh/id_rsa
   become: yes
-  become_user: "{{ operator }}"
+  become_user: "{{ github_user }}"
 
 - name: install git
   apt: name=git state=present

@@ -1,2 +1,2 @@
 secret_key: "{{ vault_secret_key }}"
-operator: vagrant
+github_user: vagrant
