@@ -4,13 +4,15 @@
 - name: copy ssh secret key
   copy: >
     content="{{ secret_key }}"
-    dest=/home/{{ operator.user }}/.ssh/id_rsa
+    dest=~/.ssh/id_rsa
     mode=0600
-    owner={{ operator.user }}
-    group={{ operator.group }}
+  become: yes
+  become_user: "{{ operator }}"
 
 - name: ssh-keygen
   command: ssh-keygen -t rsa -y -f ~/.ssh/id_rsa
+  become: yes
+  become_user: "{{ operator }}"
 
 - name: install git
   apt: name=git state=present

@@ -1,4 +1,2 @@
 secret_key: "{{ vault_secret_key }}"
-operator:
-  user: vagrant
-  group: vagrant
+operator: vagrant
